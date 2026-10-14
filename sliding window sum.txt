@@ -1,0 +1,246 @@
+ //sliding window sum
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            list.add(sc.nextInt());
+        }
+          int k = sc.nextInt();
+          for(int i=0;i<n-k+1;i++)
+          {
+              int sum=0;
+              for(int j=i;j<k+i;j++)
+              {
+                  System.out.print(list.get(j)+" ");
+                  sum = sum+list.get(j);
+                  
+              }
+              System.out.println(" "+sum);
+          }
+       
+    }
+}
+//sliding window max element
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            list.add(sc.nextInt());
+        }
+          int k = sc.nextInt();
+          for(int i=0;i<n-k+1;i++)
+          {
+              int max=0;
+              for(int j=i;j<k+i;j++)
+              {
+                  System.out.print(list.get(j)+" ");
+                 if(list.get(j)>max)
+                 {
+                     max=list.get(j);
+                 }
+                  
+              }
+              System.out.println(" "+max);
+          }
+       
+    }
+}
+//subarryay creation
+online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int start,end,k;
+        for(int i=0;i<n;i++)
+        {
+            list.add(sc.nextInt());
+        }
+          for( start=0;start<n;start++)
+          {
+              for( end=start;end<n;end++)
+              {
+              for(k=start;k<=end;k++)
+              {
+                  System.out.print(list.get(k)+ " ");
+              }
+                  System.out.println();
+              }
+          }  
+       
+    }
+} 
+//hashset creation
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        set.add(2);
+          set.add(1);
+            set.add(2);
+              set.add(4);
+                set.add(5);
+                  set.add(6);
+                  System.out.println(set);
+    }
+}
+        
+      // methods of hashset
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        set.add(2);
+          set.add(1);
+            set.add(3);
+              set.add(4);
+                set.add(5);
+                  HashSet<Integer> set1 = new HashSet<>();
+                    set1.add(2);
+                    set1.add(1);
+                    set1.add(9);
+                    set1.add(8);
+                    set1.add(null);
+                    System.out.println(set);
+                  System.out.println(set1);
+                     System.out.println(set.size());//size
+                  System.out.println(set1.size());
+                  System.out.println(set1.hashCode());//has
+                  System.out.println(set.hashCode());
+                   System.out.println(set.contains(5));// /
+                   System.out.println(set.remove(3));
+                   System.out.println(set);
+                   System.out.println(set.isEmpty());//
+                   set.addAll(set1);
+                   System.out.println(set);
+                   System.out.println(set.containsAll(set1));
+                   System.out.println(set.equals(set1));
+                   System.out.println(set.retainAll(set1));
+                   Iterator<Integer> it=set.iterator();
+                   while(it.hasNext())
+                   {
+                       System.out.println(it.next());
+                   }
+                 //
+                   
+    }
+}
+//caracter reading how many times repeat
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        HashMap<Character,Integer>map= new HashMap<>();
+        for(int i=0;i<s.length();i++)
+        {
+            char ch = s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+        
+          System.out.println(map);
+            }
+        }
+    //removing consecutive characters
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Stack<Character> stack = new Stack<>();
+        String s = "abbacbc";
+        for(int i=0;i<s.length();i++)
+        {
+            if(stack.isEmpty())
+            {
+                stack.push(s.charAt(i));
+            }
+            else
+            {
+                if(stack.peek()==s.charAt(i))
+                {
+                    stack.pop();
+                }
+                else
+                {
+                    stack.push(s.charAt(i));
+                }
+            }
+        }
+     
+       System.out.println(stack); 
+    }
+} 
+// same program as above but it return stack to return in string we take StringBuilder class 
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> stack = new Stack<>();
+        for(int i=0;i<s.length();i++)
+        {
+            if(stack.isEmpty())
+            {
+                stack.push(s.charAt(i));
+            }
+            else
+            {
+                if(stack.peek()==s.charAt(i))
+                {
+                    stack.pop();
+                }
+                else
+                {
+                    stack.push(s.charAt(i));
+                }
+
+            }
+        }
+    
+        StringBuilder ans = new StringBuilder();
+        while(!stack.isEmpty())
+        {
+            ans.append(stack.pop());
+            
+        }
+        return ans.reverse().toString();
+    }
+}
+//
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Stack<Character> stack = new Stack<>();
+        String s = "ab#c#";
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i) == '#')
+            {
+              stack.pop();  
+            }
+            else
+            {
+                stack.push(s.charAt(i));
+            }
+        }
+       StringBuilder ans = new StringBuilder();
+       while(!stack.isEmpty())
+       { 
+           ans.append(stack.pop());
+        
+       
+    }
+   System.out.println(ans.reverse().toString());
+}
+}
+       
+           
+
